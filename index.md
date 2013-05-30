@@ -109,13 +109,15 @@ it also ports many linux tools such as:
 
 # python
 
-download: <http://www.python.org/getit/>
+install: <http://www.python.org/getit/>
 
-## install
+## pip
 
-install distribute + pip: <http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute>
+### install
 
 first install distribute, then pip.
+
+both download links at: <http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute>
 
 # git
 
