@@ -1,50 +1,67 @@
-windows survival cheats for linux users, in special programmers
+Installation procedures are not here.
 
-if a program or system is multi-os, it shall not be put here but possibly on a linux repository or a repo of its own
+# Package manager
 
-# skype
+No official one, but non official ones cropping up.
 
-install: <http://www.skype.com/en/download-skype/skype-for-windows/downloading/>
+## chocolatey
 
-# pidgin
+Install chocolatey:
 
-install: <http://www.pidgin.im/download/windows/>
+    @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%systemdrive%\chocolatey\bin
 
-# windows explorer
+Website: <http://chocolatey.org/>
 
-## open shell here
+Package list: <http://chocolatey.org/packages>
+
+Usage:
+
+    cinst git
+
+# path
+
+To modify permanently:
+
+    right click computer > advanced settings > advanced > environment variables
+
+Notice the absolute noobiness!! =)
+
+Most programs don't get put into path by default on install. Users must of course click on desktop shortcuts or init menu shortcuts.
+
+Suggestion: create a `c:\bin` dir and symlink every executable into it
+
+also consider setting only the path for bash if you are only going to use a bash port for windows
+
+# Windows explorer
+
+## Open shell here
 
 do a shift+rightclick on a folder to see this option
 
-# bullzip
+# Bullzip
 
 pdf printer
 
-install: <http://www.bullzip.com/products/pdf/download.php>
+# Windjvu
 
-# windjvu
+Djvu reader
 
-djvu reader
+# Ghostscript + sgview
 
-# ghostscript + sgview
+View ps files
 
-. ps viewer
-
-must install both:
-
-- <http://www.ghostscript.com/download/gsdnld.html>
-- <http://pages.cs.wisc.edu/~ghost/index.htm>
+Must install first ghostscript, then sgview.
 
 # cmd.exe
 
-terminal emulator + bash-like language
+Terminal emulator + bash-like language
 
-much worse than bash:
+Much worse than bash:
 
     set a=b
     echo %a%
 
-don't ever use it, just use bash from mingw for example or powershell
+Don't ever use it, just use bash from mingw for example.
 
 # powershell
 
@@ -52,25 +69,21 @@ alternative to cmd.exe, comes with windows 7.
 
 TODO why is it better than cmd.exe
 
-# path
+# mingw vs cygwin 
+both gives you POSIX linux utilities such as `sh`, `ls`, `mkdir`, `make`
 
-to modify permanently: right click computer > advanced settings > advanced > environment variables
-
-notice the absolute noobiness!! =)
-
-not to mention that most programs don't get put into path by default on install
-
-suggestion: create a `c:\bin` dir and symlink every executable into it
-
-also consider setting only the path for bash if you are only going to use a bash port for windows
+TODO which is better for what?
 
 # mingw
 
-install: <http://sourceforge.net/projects/mingw/?source=dlp> 
+Minimal gnu for windows.
 
-port of basic gnu tools to windows including:
+Port of basic gnu tools to windows including:
+
+- all POSIX utilities.
 
 - gcc
+
 - bash. Just type bash inside a `cmd` terminal and your back in bash.
 
     It inherits the system path into its `$PATH` variable
@@ -87,41 +100,51 @@ port of basic gnu tools to windows including:
 
     files with extensions in `PATHEXT` can be run without writting extension (by default for example, `a.exe` can be run as `./a`)
 
-- make
 - vim. You must run `vim` from inside bash!
-- cat
-- grep
-- ln. `ln -s` creates copies instead of symbolic links. TODO how to make symbolic links? `mklink` seems to be a `cmd.exe` built-in.
 
-it does *not* include stuff like:
+- ln. `ln -s` and `cp -s` create copies instead of symbolic links. TODO how to make symbolic links? `mklink` seems to be a `cmd.exe` built-in.
+
+It does *not* include stuff like:
 
 - man
 
-## mingw vs cygin
+Default installation does not put things on your windwos path.
 
-we recommend mingw for less dependencies
+# cygwin
 
-it also ports many linux tools such as:
+Includes mingw, and much, much more, even beyond LSB utilities:
 
-# read/write linux partitions
+- POSIX compatibility API
+- python
+- perl
+- wget and curl
 
-<http://www.howtogeek.com/112888/3-ways-to-access-your-linux-partitions-from-windows/>
+Name origin: first developed by Cygnus Solutions, later acquired by Red hat. Open source.
 
-# python
+Before installation you can configure what will be installed.
 
-install: <http://www.python.org/getit/>
+After configuration, the installer downloads dependencies one by one from the internet.
 
-## pip
+# Linux partitions
 
-### install
+Read and write to/from linux partitions
 
-first install distribute, then pip.
+For the options, see: <http://www.howtogeek.com/112888/3-ways-to-access-your-linux-partitions-from-windows/>
 
-both download links at: <http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute>
+# Git
 
-# git
+Install: <http://git-scm.com/download/win>
 
-install: <http://git-scm.com/download/win>
+To avoid typing the user/pass every time, setup ssh public key with: `ssh-keygen.exe`. This will create the private public pair in "$HOME"/.ssh/, then copy the public key and add it to your web interface
 
-to avoid typing the user/pass every time, setup ssh public key with: `ssh-keygen.exe`. This will create the private public pair in "$HOME"/.ssh/, then copy the public key and add it to your web interface
+# Game
 
+One of the few reasons for which you should use Windows: games, since no game company will ever bother porting for the 5% popularity systems!
+
+## Pcsx2
+
+Playstation 2 emulator
+
+Seems to work well and have all basic features
+
+Install: <http://pcsx2.net/download/releases/windows.html>
