@@ -135,6 +135,14 @@ Before installation you can configure what will be installed.
 
 After configuration, the installer downloads dependencies one by one from the internet.
 
+### GnuWin32
+
+Native port of GNU command line utilities and libraries.
+
+<https://en.wikipedia.org/wiki/GnuWin32>
+
+Vs MinGW: <http://stackoverflow.com/questions/10712550/difference-between-gnuwin32-and-cygwin>
+
 ## Linux partitions
 
 Read and write to/from Linux partitions
